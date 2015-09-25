@@ -1,6 +1,11 @@
 class Scrabble
+
   def score(word)
-    0
+    if word.nil?
+      0
+    else
+      word.chars.map {|letter| point_values.fetch(letter.upcase)}.reduce(0, :+)
+    end
   end
 
   def point_values
